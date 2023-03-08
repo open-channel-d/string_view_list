@@ -21,5 +21,24 @@ char sym = list[7]; // w
 for (const auto& sym : list) {
 	//do smth
 }
+```
 
+## Building
+
+To build static library from source:
+```
+$ # inside the project root:
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make sv_list
+```
+
+To build library with tests:
+```
+$ mkdir build
+$ cd build
+$ cmake -DBUILD_TESTS=on ..
+$ make sv_list_test
+$ make test
 ```
