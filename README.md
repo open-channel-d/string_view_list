@@ -12,11 +12,11 @@ std::string_view str3 = "!";
 string_view_list list = str1 + str2 + str3; 
 std::cout << list; // "Hello, world!"
 
-string_view_list substr = list.substr(3, 5); // "lo wo"
+string_view_list substr = list.substr(3, 6); // "lo, wo"
 bool starts_with = list.starts_with("Hell"); // true
 bool ends_with = list.ends_with("d!"); // true
 
-char sym = list[6]; // w
+char sym = list[7]; // w
 
 for (const auto& sym : list) {
 	//do smth
