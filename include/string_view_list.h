@@ -2,7 +2,6 @@
 
 #include <ostream>
 #include <string_view>
-#include <iterator>
 
 class string_view_list {
 public:
@@ -25,9 +24,8 @@ public:
 	bool operator!=(std::string_view) const;
 
 	void operator+=(std::string_view);
-	void append(std::string_view);
 	void operator+=(const string_view_list&);
-	void append(const string_view_list&);
+	string_view_list &operator=(const string_view_list&);
 
 	size_t size() const;
 	char operator[](size_t) const;
@@ -57,6 +55,9 @@ public:
 
 	friend std::ostream& operator<<(std::ostream&, const string_view_list&);
 private:
+	void append(std::string_view);
+	void append(const string_view_list&);
+
 	string_view_node * _first;
 	string_view_node * _last;
 

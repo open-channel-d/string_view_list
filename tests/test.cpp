@@ -40,6 +40,29 @@ BOOST_AUTO_TEST_CASE(AddStringView2) {
     BOOST_REQUIRE(list == "123");
 }
 
+BOOST_AUTO_TEST_CASE(AddStringToItself) {
+    std::string_view str = "1";
+
+    string_view_list list = str + str;
+    BOOST_REQUIRE(list == "11");
+
+    list += list;
+    BOOST_REQUIRE(list == "1111");
+
+    list = list + list;
+    BOOST_REQUIRE(list == "11111111");
+}
+
+BOOST_AUTO_TEST_CASE(AssigmentOperator) {
+    string_view_list list_1, list_2, list_3;
+    std::string_view str_1 = "1";
+    std::string_view str_2 = "2";
+    list_1 = list_2 = list_3 = str_1 + str_2;
+    BOOST_REQUIRE(list_1 == "12");
+    BOOST_REQUIRE(list_2 == "12");
+    BOOST_REQUIRE(list_3 == "12");
+}
+
 BOOST_AUTO_TEST_CASE(AddLists) {
     std::string_view str1 = "1";
     std::string_view str2 = "23";

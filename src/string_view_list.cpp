@@ -18,6 +18,20 @@ string_view_list::string_view_list(const string_view_list& list) : string_view_l
 	append(list);
 }
 
+string_view_list& string_view_list::operator=(const string_view_list& list) {
+	if (_first) {
+		delete _first;
+	}
+
+	_first = nullptr;
+	_last = nullptr;
+	_size = 0;
+
+	append(list);
+
+	return *this;
+}
+
 bool string_view_list::operator==(const string_view_list& list) const
 {
 	if (_size != list.size()) {
@@ -88,11 +102,13 @@ void string_view_list::append(const string_view_list& list)
 		append(current->str);
 		current = current->next;
 	}
+
 }
 
 void string_view_list::operator+=(const string_view_list& list)
 {
-	append(list);
+	string_view_list copy(list);
+	append(copy);
 }
 
 std::ostream& operator<<(std::ostream& os, const string_view_list& list)
