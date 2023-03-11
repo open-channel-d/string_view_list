@@ -19,6 +19,9 @@ string_view_list::string_view_list(const string_view_list& list) : string_view_l
 }
 
 string_view_list& string_view_list::operator=(const string_view_list& list) {
+	if (*this == list) {
+		return *this;
+	}	
 	if (_first) {
 		delete _first;
 	}

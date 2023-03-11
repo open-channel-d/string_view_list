@@ -61,6 +61,9 @@ BOOST_AUTO_TEST_CASE(AssigmentOperator) {
     BOOST_REQUIRE(list_1 == "12");
     BOOST_REQUIRE(list_2 == "12");
     BOOST_REQUIRE(list_3 == "12");
+
+    list_1 = list_1;
+    BOOST_REQUIRE(list_1 == "12");
 }
 
 BOOST_AUTO_TEST_CASE(AddLists) {
