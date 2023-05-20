@@ -1,4 +1,6 @@
 # string_view_list
+![Cmake tests](https://github.com/open-channel-d/string_view_list/actions/workflows/cmake.yml/badge.svg)
+
 C++17 class for string_view concatenation
 
 string_view_list allows to add instances of string_view without copying data.
